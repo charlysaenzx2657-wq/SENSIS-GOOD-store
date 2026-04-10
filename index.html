@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SENSIS GOOD FF — Inicio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── INTRO CINEMATIC ────────────────────────────────────── */
+    .intro-screen {
+      position: fixed; inset: 0; z-index: 700;
+      background: var(--bg);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .intro-screen.out {
+      opacity: 0; transform: scale(1.04);
+      pointer-events: none;
+    }
+    .intro-line {
+      font-family: var(--font-mono);
+      font-size: 0.55rem; letter-spacing: 0.5em;
+      text-transform: uppercase; color: var(--muted);
+      opacity: 0; animation: introFade 0.8s ease 0.3s forwards;
+    }
+    .intro-logo {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 12vw, 10rem);
+      letter-spacing: 0.08em; color: var(--gold);
+      text-shadow: 0 0 60px rgba(232,197,71,0.3);
+      line-height: 0.9;
+      opacity: 0; animation: introFade 1s ease 0.7s forwards;
+    }
+    .intro-logo span { color: var(--text); }
+    .intro-sub {
+      font-family: var(--font-mono);
+      font-size: 0.5rem; letter-spacing: 0.4em;
+      text-transform: uppercase; color: var(--muted);
+      margin-top: 0.8rem;
+      opacity: 0; animation: introFade 0.8s ease 1.1s forwards;
+    }
+    .intro-bar {
+      width: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--crimson));
+      margin-top: 2.5rem;
+      animation: introBar 1.8s ease 1.4s forwards;
+      box-shadow: 0 0 12px rgba(232,197,71,0.4);
+    }
+    @keyframes introFade { to { opacity: 1; } }
+    @keyframes introBar  { to { width: 200px; } }
+
+    /* ── HERO ────────────────────────────────────────────────── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 7rem 5rem 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg-text {
+      position: absolute; right: -2rem; top: 50%; transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(12rem, 28vw, 26rem);
+      color: rgba(232,197,71,0.025);
+      letter-spacing: 0.05em; line-height: 1;
+      pointer-events: none; white-space: nowrap;
+      user-select: none;
+    }
+
+    .hero-orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(100px); pointer-events: none;
+    }
+    .hero-orb-1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(232,197,71,0.06) 0%, transparent 70%);
+      top: -200px; left: -200px;
+      animation: orbFloat 12s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(192,57,43,0.07) 0%, transparent 70%);
+      bottom: -100px; right: 5%;
+      animation: orbFloat 9s ease-in-out infinite reverse 2s;
+    }
+    @keyframes orbFloat {
+      0%,100% { transform: scale(1) translate(0,0); }
+      50% { transform: scale(1.1) translate(20px,-20px); }
+    }
+
+    .hero-content { position: relative; max-width: 680px; }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.52rem; letter-spacing: 0.5em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.2rem; opacity: 0.9;
+      display: flex; align-items: center; gap: 0.8rem;
+      animation: fadeUp 1s ease 3.2s both;
+    }
+    .hero-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: 0.92; letter-spacing: 0.04em;
+      margin-bottom: 1.8rem;
+      animation: fadeUp 1s ease 3.4s both;
+    }
+    .hero-title .t1 { display: block; color: var(--text); }
+    .hero-title .t2 { display: block; color: var(--gold); text-shadow: 0 0 40px rgba(232,197,71,0.3); }
+    .hero-title .t3 { display: block; color: var(--text2); font-size: 0.65em; }
+
+    .hero-desc {
+      font-size: 1rem; color: var(--text2); line-height: 1.8;
+      max-width: 480px; margin-bottom: 2.8rem; font-style: italic;
+      animation: fadeUp 1s ease 3.6s both;
+    }
+
+    .hero-ctas {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 1s ease 3.8s both;
+    }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 5rem;
+      display: flex; align-items: center; gap: 0.8rem;
+      animation: fadeUp 1s ease 4s both;
+    }
+    .hero-scroll-line { width: 40px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .hero-scroll-text {
+      font-family: var(--font-mono); font-size: 0.42rem;
+      letter-spacing: 0.35em; text-transform: uppercase; color: var(--muted);
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(25px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ── STORY SECTION ───────────────────────────────────────── */
+    .story {
+      position: relative; z-index: 1;
+      padding: 8rem 5rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .story::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, transparent, var(--gold), transparent);
+    }
+
+    .story-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.8fr; gap: 5rem; align-items: center;
+    }
+
+    .story-left { }
+    .story-number {
+      font-family: var(--font-display);
+      font-size: 8rem; color: rgba(232,197,71,0.08); line-height: 1;
+      margin-bottom: -2rem; display: block;
+    }
+    .story-quote {
+      font-family: var(--font-body);
+      font-size: 1.4rem; font-style: italic;
+      color: var(--gold); line-height: 1.5;
+    }
+    .story-quote-attr {
+      font-family: var(--font-mono);
+      font-size: 0.48rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--muted); margin-top: 1rem; display: block;
+    }
+
+    .story-right {}
+    .story-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      letter-spacing: 0.05em; color: var(--text);
+      margin-bottom: 1.5rem; line-height: 1;
+    }
+    .story-heading em { color: var(--gold); font-style: normal; }
+    .story-body {
+      font-size: 1rem; color: var(--text2); line-height: 1.9;
+    }
+    .story-body p { margin-bottom: 1.2rem; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong { color: var(--gold); font-weight: 400; }
+
+    /* ── FEATURES STRIP ──────────────────────────────────────── */
+    .features-strip {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-item {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    .feature-item:last-child { border-right: none; }
+    .feature-item:hover { background: rgba(232,197,71,0.03); }
+    .feature-icon { font-size: 1.6rem; margin-bottom: 0.8rem; filter: drop-shadow(0 0 8px rgba(232,197,71,0.3)); }
+    .feature-title {
+      font-family: var(--font-mono); font-size: 0.52rem;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem;
+    }
+    .feature-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── PREVIEW PRODUCTS ────────────────────────────────────── */
+    .preview-section {
+      position: relative; z-index: 1;
+      padding: 7rem 5rem;
+      max-width: 1300px; margin: 0 auto;
+    }
+    .preview-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 3.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .preview-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+      background: var(--border);
+    }
+    .preview-card {
+      background: var(--surface); overflow: hidden;
+      transition: transform 0.4s cubic-bezier(.25,.46,.45,.94);
+    }
+    .preview-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); z-index: 2; }
+    .pc-img {
+      width: 100%; aspect-ratio: 4/3; overflow: hidden;
+      background: var(--bg2); position: relative;
+    }
+    .pc-img img { width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+    .preview-card:hover .pc-img img { transform:scale(1.07); }
+    .pc-placeholder {
+      width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:4.5rem;
+      background:linear-gradient(135deg,var(--bg2),var(--surface2));
+      transition:transform .6s ease;
+    }
+    .preview-card:hover .pc-placeholder { transform:scale(1.05); }
+    .pc-body { padding:1.4rem; }
+    .pc-name { font-family:var(--font-display);font-size:1.2rem;letter-spacing:.05em;color:var(--text);margin-bottom:.4rem; }
+    .pc-price { font-family:var(--font-display);font-size:1.5rem;color:var(--gold);text-shadow:var(--glow-gold-sm); }
+
+    /* ── PAYMENTS BLOCK ──────────────────────────────────────── */
+    .payments-block {
+      position: relative; z-index: 1;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 4rem 5rem;
+      text-align: center;
+    }
+    .payments-title {
+      font-family: var(--font-mono); font-size: 0.48rem;
+      letter-spacing: 0.45em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem;
+    }
+    .payments-row {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem;
+    }
+    .pay-pill {
+      font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.55rem 1.3rem; border: 1px solid var(--border); color: var(--muted); transition: all 0.3s;
+    }
+    .pay-pill:hover { border-color: rgba(232,197,71,.4); color: var(--gold); }
+    .pay-pill.hi { border-color: rgba(232,197,71,.35); color: var(--gold); background: rgba(232,197,71,.05); }
+
+    /* ── Responsive ────────────────────────────────── */
+    @media (max-width:900px) {
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .story { padding: 5rem 1.5rem; }
+      .story-inner { grid-template-columns:1fr; gap:3rem; }
+      .features-strip { grid-template-columns:1fr 1fr; }
+      .feature-item { border-bottom:1px solid var(--border); }
+      .preview-section { padding: 4rem 1.5rem; }
+      .preview-grid { grid-template-columns:1fr 1fr; }
+      .payments-block { padding: 3rem 1.5rem; }
+      .hero-scroll { left:1.5rem; }
+    }
+    @media (max-width:600px) {
+      .preview-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="scanlines"></div>
+
+  <!-- Cursor -->
+  <div class="cursor-dot"  id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Intro Screen -->
+  <div class="intro-screen" id="introScreen">
+    <div class="intro-line">Bienvenido a</div>
+    <div class="intro-logo">SENSIS <span>GOOD</span> FF</div>
+    <div class="intro-sub">// La tienda que buscabas</div>
+    <div class="intro-bar"></div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-main">SENSIS GOOD FF</span>
+      <span class="nav-logo-sub">// tienda oficial</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="https://wa.me/526521038109" target="_blank" class="nav-wa">💬 WhatsApp</a>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-bg-text">SGF</div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Colección actual · 2025</div>
+      <h1 class="hero-title">
+        <span class="t1">SENSIS</span>
+        <span class="t2">GOOD FF</span>
+        <span class="t3">La selección que mereces</span>
+      </h1>
+      <p class="hero-desc">
+        Cada producto en esta tienda fue elegido con un propósito: darte calidad real, sin rodeos, al mejor precio posible.
+      </p>
+      <div class="hero-ctas">
+        <a href="catalogo.html" class="btn-primary">Ver catálogo</a>
+        <a href="contacto.html" class="btn-outline">Contáctanos</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span class="hero-scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══ STORY ═══ -->
+  <section class="story">
+    <div class="story-inner">
+      <div class="story-left reveal-left">
+        <span class="story-number">01</span>
+        <p class="story-quote">
+          "No abrí esta tienda por dinero. La abrí porque me cansé de buscar y no encontrar."
+        </p>
+        <span class="story-quote-attr">— Fundador, SENSIS GOOD FF</span>
+      </div>
+      <div class="story-right reveal-right">
+        <h2 class="story-heading">Nuestra <em>historia</em></h2>
+        <div class="deco-line"></div>
+        <div class="story-body">
+          <p>
+            Todo empezó con una frustración simple: querer comprar algo bueno, a buen precio, sin tener que buscar durante horas o arriesgarse con vendedores desconocidos. 
+            Existía un hueco entre lo que la gente necesitaba y lo que había disponible.
+          </p>
+          <p>
+            Así nació <strong>SENSIS GOOD FF</strong>. No como un negocio forzado, sino como la solución natural a ese problema. Cada producto que encuentras aquí fue probado, seleccionado y elegido a mano.
+          </p>
+          <p>
+            Hoy operamos directamente desde México, con entrega coordinada por WhatsApp y <strong>múltiples formas de pago</strong> — porque queremos que comprar sea fácil, sin complicaciones, desde la primera vez.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURES ═══ -->
+  <div class="features-strip">
+    <div class="feature-item reveal">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title">Entrega rápida</div>
+      <div class="feature-desc">Coordinamos envío por WhatsApp, rápido y sin complicaciones.</div>
+    </div>
+    <div class="feature-item reveal">
+      <div class="feature-icon">💳</div>
+      <div class="feature-title">Múltiples pagos</div>
+      <div class="feature-desc">Spin OXXO, PayPal, SPEI, tarjeta, OXXO y más.</div>
+    </div>
+    <div class="feature-item reveal">
+      <div class="feature-icon">🎯</div>
+      <div class="feature-title">Selección real</div>
+      <div class="feature-desc">Cada producto fue elegido por calidad, no por catálogo.</div>
+    </div>
+    <div class="feature-item reveal">
+      <div class="feature-icon">🤝</div>
+      <div class="feature-title">Atención directa</div>
+      <div class="feature-desc">Hablas con una persona real, no con un bot.</div>
+    </div>
+  </div>
+
+  <!-- ═══ PREVIEW PRODUCTS ═══ -->
+  <div class="preview-section">
+    <div class="preview-header reveal">
+      <div>
+        <div class="section-eyebrow">Destacados</div>
+        <h2 class="section-title">LO MÁS BUSCADO</h2>
+      </div>
+      <a href="catalogo.html" class="btn-outline" style="padding:.7rem 1.8rem;font-size:.55rem">Ver todo →</a>
+    </div>
+    <div class="preview-grid">
+      <div class="preview-card reveal">
+        <div class="pc-img"><div class="pc-placeholder">📦</div></div>
+        <div class="pc-body">
+          <div class="pc-name">Producto 1</div>
+          <div class="pc-price">$XXX MXN</div>
+        </div>
+      </div>
+      <div class="preview-card reveal">
+        <div class="pc-img"><div class="pc-placeholder">🎁</div></div>
+        <div class="pc-body">
+          <div class="pc-name">Producto 2</div>
+          <div class="pc-price">$XXX MXN</div>
+        </div>
+      </div>
+      <div class="preview-card reveal">
+        <div class="pc-img"><div class="pc-placeholder">✨</div></div>
+        <div class="pc-body">
+          <div class="pc-name">Producto 3</div>
+          <div class="pc-price">$XXX MXN</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PAYMENTS ═══ -->
+  <div class="payments-block reveal">
+    <div class="payments-title">// Métodos de pago aceptados</div>
+    <div class="payments-row">
+      <div class="pay-pill hi">📱 Spin by OXXO</div>
+      <div class="pay-pill hi">🏪 OXXO</div>
+      <div class="pay-pill hi">🅿️ PayPal</div>
+      <div class="pay-pill">💳 Tarjeta</div>
+      <div class="pay-pill">🏦 SPEI</div>
+      <div class="pay-pill">💵 Efectivo</div>
+      <div class="pay-pill">🪙 Débito</div>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-logo-wrap">
+      <div class="footer-logo-main">SENSIS GOOD FF</div>
+      <div class="footer-logo-sub">// tienda oficial · México</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="footer-right">
+      <span>WhatsApp</span><br>+52 652 103 8109<br>
+      © 2025 — Todos los derechos reservados
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Dismiss intro screen
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('introScreen').classList.add('out');
+        setTimeout(() => document.getElementById('introScreen').remove(), 1200);
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

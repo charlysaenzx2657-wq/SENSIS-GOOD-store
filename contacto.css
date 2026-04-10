@@ -1,0 +1,252 @@
+/* ============================================================
+   SENSIS GOOD FF — Contacto Styles  ⚡ NEON CYBER
+   ============================================================ */
+
+.contact-grid {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr 1.5fr;
+  gap: 2px; max-width: 1200px; margin: 4rem auto;
+  background: var(--border2);
+  box-shadow: 0 0 60px rgba(0,245,255,0.06), 0 0 120px rgba(191,0,255,0.04);
+}
+
+/* ── Left info panel ─────────────────────────────────────── */
+.contact-info {
+  background: var(--surface);
+  padding: 3.5rem;
+  display: flex; flex-direction: column; gap: 2.2rem;
+  position: relative;
+  overflow: hidden;
+}
+/* Vertical neon line accent */
+.contact-info::before {
+  content: '';
+  position: absolute; top: 0; right: 0; bottom: 0; width: 1px;
+  background: linear-gradient(180deg, transparent, var(--neon-cyan), var(--neon-purple), transparent);
+  opacity: 0.2;
+}
+.contact-info::after {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 14px; height: 14px;
+  border-top: 1px solid var(--neon-cyan);
+  border-left: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 8px rgba(0,245,255,0.4);
+}
+
+.contact-info-title {
+  font-family: var(--font-mono);
+  font-size: 0.52rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--neon-cyan); margin-bottom: 0.3rem;
+  text-shadow: var(--glow-cyan-sm);
+}
+
+.contact-wa-btn {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  background: rgba(0,255,136,0.05);
+  border: 1px solid rgba(0,255,136,0.25);
+  color: var(--neon-green);
+  transition: all 0.3s; text-decoration: none;
+  position: relative; overflow: hidden;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+}
+.contact-wa-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(0,255,136,0.08), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+.contact-wa-btn:hover {
+  background: rgba(0,255,136,0.1);
+  border-color: rgba(0,255,136,0.5);
+  box-shadow: 0 0 20px rgba(0,255,136,0.15);
+  transform: translateY(-2px);
+}
+.contact-wa-btn:hover::before { transform: translateX(100%); }
+.wa-icon { font-size: 1.6rem; filter: drop-shadow(0 0 6px var(--neon-green)); }
+.wa-text strong {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
+  margin-bottom: 3px; color: var(--neon-green);
+  text-shadow: var(--glow-green);
+}
+.wa-text span {
+  font-family: var(--font-mono); font-size: 0.85rem;
+  color: rgba(0,255,136,0.6);
+}
+
+.contact-divider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--border2), rgba(0,245,255,0.15), var(--border2));
+}
+
+.info-block {}
+.info-block-label {
+  font-family: var(--font-mono);
+  font-size: 0.45rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--neon-purple); margin-bottom: 0.6rem;
+  text-shadow: 0 0 6px rgba(191,0,255,0.4);
+}
+.info-block-val {
+  font-size: 0.95rem; color: var(--text2); line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+.info-block-val a { color: var(--neon-cyan); transition: all 0.3s; }
+.info-block-val a:hover {
+  text-shadow: var(--glow-cyan-sm);
+}
+
+.contact-hours {}
+.hours-row {
+  display: flex; justify-content: space-between;
+  font-family: var(--font-mono); font-size: 0.55rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(0,245,255,0.06);
+  color: var(--muted);
+  transition: color 0.3s;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-row:hover { color: var(--text2); }
+.hours-row span:last-child {
+  color: var(--neon-cyan);
+  text-shadow: var(--glow-cyan-sm);
+}
+
+/* ── Right form panel ────────────────────────────────────── */
+.contact-form-wrap {
+  background: var(--bg2);
+  padding: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+/* Radial glow behind form */
+.contact-form-wrap::before {
+  content: '';
+  position: absolute; bottom: -50%; right: -30%;
+  width: 400px; height: 400px;
+  background: radial-gradient(ellipse, rgba(191,0,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.contact-form-wrap::after {
+  content: '';
+  position: absolute; bottom: 0; right: 0;
+  width: 14px; height: 14px;
+  border-bottom: 1px solid var(--neon-pink);
+  border-right: 1px solid var(--neon-pink);
+  box-shadow: 0 0 8px rgba(255,0,144,0.4);
+}
+
+.cf-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem; letter-spacing: 0.1em; color: var(--text);
+  margin-bottom: 0.3rem; font-weight: 900;
+}
+.cf-sub {
+  font-size: 0.92rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.cf-row { margin-bottom: 1.2rem; }
+.cf-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
+.cf-label {
+  display: block; font-family: var(--font-mono);
+  font-size: 0.48rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--neon-cyan); margin-bottom: 0.45rem;
+  text-shadow: 0 0 6px rgba(0,245,255,0.35);
+}
+.cf-input, .cf-textarea {
+  width: 100%; padding: 0.85rem 1rem;
+  background: var(--surface); border: 1px solid var(--border2);
+  color: var(--text); font-family: var(--font-body); font-size: 0.97rem;
+  transition: all 0.3s; outline: none;
+  letter-spacing: 0.02em;
+}
+.cf-input:focus, .cf-textarea:focus {
+  border-color: rgba(0,245,255,0.5);
+  box-shadow: 0 0 0 1px rgba(0,245,255,0.12), inset 0 0 12px rgba(0,245,255,0.03);
+}
+.cf-input::placeholder, .cf-textarea::placeholder { color: var(--muted); }
+.cf-textarea { resize: vertical; min-height: 140px; }
+
+.cf-subjects {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem;
+}
+.cf-subj-label {
+  font-family: var(--font-mono); font-size: 0.48rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--neon-cyan); display: block; margin-bottom: 0.6rem;
+  text-shadow: 0 0 6px rgba(0,245,255,0.35);
+}
+.cf-subject {
+  font-family: var(--font-mono); font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.4rem 1rem; background: transparent; color: var(--muted);
+  border: 1px solid var(--border2); transition: all 0.3s;
+  clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);
+}
+.cf-subject:hover {
+  color: var(--neon-purple);
+  border-color: rgba(191,0,255,0.4);
+  text-shadow: 0 0 8px rgba(191,0,255,0.5);
+}
+.cf-subject.active {
+  color: var(--neon-cyan);
+  border-color: rgba(0,245,255,0.5);
+  background: rgba(0,245,255,0.07);
+  box-shadow: 0 0 8px rgba(0,245,255,0.1);
+  text-shadow: var(--glow-cyan-sm);
+}
+
+.btn-send-msg {
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+  padding: 1.05rem;
+  background: transparent;
+  color: var(--neon-pink);
+  border: 1px solid var(--neon-pink);
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 0 15px rgba(255,0,144,0.15), inset 0 0 15px rgba(255,0,144,0.04);
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  position: relative; overflow: hidden;
+}
+.btn-send-msg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,0,144,0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+.btn-send-msg:hover {
+  background: rgba(255,0,144,0.1);
+  box-shadow: var(--glow-pink);
+  transform: translateY(-1px);
+}
+.btn-send-msg:hover::before { transform: translateX(100%); }
+
+.cf-success {
+  display: none;
+  background: rgba(0,255,136,0.04);
+  border: 1px solid rgba(0,255,136,0.25);
+  border-left: 2px solid var(--neon-green);
+  padding: 1.2rem 1.5rem; margin-top: 1.2rem; text-align: center;
+  box-shadow: 0 0 20px rgba(0,255,136,0.08);
+}
+.cf-success.show { display: block; }
+.cf-success strong {
+  display: block; font-family: var(--font-mono);
+  font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--neon-green); margin-bottom: 0.3rem;
+  text-shadow: var(--glow-green);
+}
+.cf-success span { font-size: 0.88rem; color: var(--muted); }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; margin: 2rem 1.5rem; }
+  .contact-info, .contact-form-wrap { padding: 2.5rem 1.5rem; }
+  .cf-row-2 { grid-template-columns: 1fr; }
+}

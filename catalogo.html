@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SENSIS GOOD FF — Catálogo</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="catalogo.css"/>
+</head>
+<body>
+<div class="scanlines"></div>
+
+  <div class="cursor-dot"  id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-main">SENSIS GOOD FF</span>
+      <span class="nav-logo-sub">// tienda oficial</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="https://wa.me/526521038109" target="_blank" class="nav-wa">💬 WhatsApp</a>
+  </nav>
+
+  <!-- Page header -->
+  <div class="page-band" data-title="CATALOGO">
+    <div class="section-eyebrow">02 — catálogo</div>
+    <h1 class="section-title">TODOS LOS<br>PRODUCTOS</h1>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <span class="filter-label">Filtrar:</span>
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="cat-a">Categoría A</button>
+    <button class="filter-btn" data-filter="cat-b">Categoría B</button>
+  </div>
+
+  <!-- Catalog grid -->
+  <div class="catalog-container">
+    <div class="catalog-count" id="productCount">
+      Mostrando <span>5</span> productos
+    </div>
+    <div class="product-grid" id="productGrid">
+      <!-- Rendered by catalogo.js -->
+    </div>
+  </div>
+
+  <!-- ═══ MODAL ═══ -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+
+      <div class="modal-top">
+        <span class="modal-top-title">// Completar pedido</span>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+
+      <div class="modal-product-row">
+        <div id="modalProductImg"></div>
+        <div class="modal-product-meta">
+          <div class="modal-product-name" id="modalProductName"></div>
+          <div class="modal-product-price" id="modalProductPrice"></div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="modal-body" id="modalForm">
+
+        <div class="mf-row-2">
+          <div>
+            <label class="mf-label">Nombre completo *</label>
+            <input class="mf-input" type="text" id="buyerName" placeholder="Tu nombre"/>
+          </div>
+          <div>
+            <label class="mf-label">Correo electrónico *</label>
+            <input class="mf-input" type="email" id="buyerEmail" placeholder="correo@ejemplo.com"/>
+          </div>
+        </div>
+
+        <div class="mf-row-2">
+          <div>
+            <label class="mf-label">Teléfono</label>
+            <input class="mf-input" type="tel" id="buyerPhone" placeholder="652 103 8109"/>
+          </div>
+          <div>
+            <label class="mf-label">Ciudad / Estado</label>
+            <input class="mf-input" type="text" id="buyerAddress" placeholder="Ciudad, Estado"/>
+          </div>
+        </div>
+
+        <!-- Payment method -->
+        <span class="pay-section-label">// Selecciona tu método de pago</span>
+        <div class="pay-methods" id="payMethodsWrap">
+          <!-- Rendered by catalogo.js -->
+        </div>
+
+        <!-- Info boxes for each payment method -->
+        <div class="pay-info-box" id="payInfo_spin">
+          <p>Paga con <strong>Spin by OXXO</strong>. Al confirmar recibirás los datos por WhatsApp directamente. Acreditación inmediata, sin comisiones.</p>
+          <div class="pay-detail">📱 Descarga la app Spin · Disponible 24/7</div>
+        </div>
+        <div class="pay-info-box" id="payInfo_oxxo">
+          <p>Paga en cualquier <strong>OXXO de México</strong>. Recibirás tu referencia de pago por WhatsApp. Tienes 3 días para pagar antes de que expire.</p>
+          <div class="pay-detail">🏪 Disponible 24/7 · Cualquier OXXO del país</div>
+        </div>
+        <div class="pay-info-box" id="payInfo_paypal">
+          <p>Paga con <strong>PayPal</strong>. Acepta Visa, Mastercard y AMEX. También puedes pagar como invitado sin cuenta PayPal. Te enviaremos el link de pago seguro por WhatsApp.</p>
+          <div class="pay-detail">🔒 Compra protegida · SSL cifrado</div>
+        </div>
+        <div class="pay-info-box" id="payInfo_spei">
+          <p>Transferencia por <strong>SPEI</strong>. Recibirás la CLABE interbancaria por WhatsApp. Desde cualquier banco en México.</p>
+          <div class="pay-detail">🏦 Acreditación en 1–2 hrs · Sin comisiones extra</div>
+        </div>
+        <div class="pay-info-box" id="payInfo_tarjeta">
+          <p>Pago con <strong>tarjeta de débito o crédito</strong> (Visa, MC, AMEX). Coordinamos el pago seguro por WhatsApp. Disponible 3, 6 y 12 MSI.</p>
+          <div class="pay-detail">💳 Débito y crédito · Meses sin intereses disponibles</div>
+        </div>
+        <div class="pay-info-box" id="payInfo_efectivo">
+          <p>Si estás cerca podemos coordinar <strong>entrega con pago en efectivo</strong>. Contáctanos para verificar disponibilidad en tu zona.</p>
+          <div class="pay-detail">💵 Solo zonas seleccionadas · Pago contra entrega</div>
+        </div>
+
+        <button class="btn-modal-confirm" onclick="confirmOrder()">
+          Confirmar pedido — WhatsApp →
+        </button>
+        <div class="modal-secure">🔒 Tu pedido se coordina directamente por WhatsApp · 100% seguro</div>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="modal-success" id="modalSuccess">
+        <div class="modal-success-icon">✅</div>
+        <h3>¡Pedido recibido!</h3>
+        <p>
+          Gracias, <strong id="modalSuccessName" style="color:var(--gold)"></strong>.<br><br>
+          Tu pedido de <strong id="modalSuccessProduct" style="color:var(--gold)"></strong> está en proceso.<br>
+          WhatsApp se abrirá para coordinar el pago y envío.
+        </p>
+        <br>
+        <a id="modalSuccessWaLink" href="#" target="_blank" class="btn-primary" style="margin-top:1rem">
+          Abrir WhatsApp →
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo-wrap">
+      <div class="footer-logo-main">SENSIS GOOD FF</div>
+      <div class="footer-logo-sub">// tienda oficial · México</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="footer-right">
+      <span>WhatsApp</span><br>+52 652 103 8109<br>
+      © 2025 — Todos los derechos reservados
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="catalogo.js"></script>
+</body>
+</html>

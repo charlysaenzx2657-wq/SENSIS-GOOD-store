@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SENSIS GOOD FF — Contacto</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="contacto.css"/>
+</head>
+<body>
+<div class="scanlines"></div>
+
+  <div class="cursor-dot"  id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-main">SENSIS GOOD FF</span>
+      <span class="nav-logo-sub">// tienda oficial</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <a href="https://wa.me/526521038109" target="_blank" class="nav-wa">💬 WhatsApp</a>
+  </nav>
+
+  <!-- Page header -->
+  <div class="page-band" data-title="CONTACTO">
+    <div class="section-eyebrow">03 — contacto</div>
+    <h1 class="section-title">ESCRÍBENOS</h1>
+    <p style="color:var(--muted);font-style:italic;margin-top:1rem;font-size:1rem;max-width:380px;line-height:1.7;">
+      ¿Tienes dudas sobre un producto o pedido? Respondemos en menos de 24 horas.
+    </p>
+  </div>
+
+  <!-- Contact grid -->
+  <div class="contact-grid reveal">
+
+    <!-- Left: info -->
+    <div class="contact-info">
+      <div>
+        <div class="contact-info-title">// Contacto directo</div>
+      </div>
+
+      <!-- WhatsApp CTA -->
+      <a href="https://wa.me/526521038109" target="_blank" class="contact-wa-btn">
+        <span class="wa-icon">💬</span>
+        <div class="wa-text">
+          <strong>WhatsApp directo</strong>
+          <span>+52 652 103 8109</span>
+        </div>
+      </a>
+
+      <div class="contact-divider"></div>
+
+      <div class="info-block">
+        <div class="info-block-label">Tiempo de respuesta</div>
+        <div class="info-block-val">Menos de 24 horas en días hábiles. Para urgencias, escríbenos directamente al WhatsApp.</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">Ubicación</div>
+        <div class="info-block-val">México 🇲🇽 · Envíos a toda la república</div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-block-label">Métodos de pago</div>
+        <div class="info-block-val">Spin OXXO · OXXO · PayPal · SPEI · Tarjeta · Efectivo</div>
+      </div>
+
+      <div class="contact-divider"></div>
+
+      <div>
+        <div class="info-block-label" style="margin-bottom:.8rem">Horarios</div>
+        <div class="contact-hours">
+          <div class="hours-row"><span>Lunes – Viernes</span><span>9:00 – 19:00</span></div>
+          <div class="hours-row"><span>Sábado</span><span>10:00 – 15:00</span></div>
+          <div class="hours-row"><span>Domingo</span><span>Cerrado</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="contact-form-wrap">
+      <h2 class="cf-title">Envíanos un mensaje</h2>
+      <p class="cf-sub">Completa el formulario y te contactamos. También puedes escribirnos directamente al WhatsApp.</p>
+
+      <div class="cf-row-2">
+        <div>
+          <label class="cf-label">Nombre *</label>
+          <input class="cf-input" type="text" id="cfName" placeholder="Tu nombre"/>
+        </div>
+        <div>
+          <label class="cf-label">Correo *</label>
+          <input class="cf-input" type="email" id="cfEmail" placeholder="correo@ejemplo.com"/>
+        </div>
+      </div>
+
+      <div class="cf-row">
+        <label class="cf-label">Teléfono</label>
+        <input class="cf-input" type="tel" id="cfPhone" placeholder="652 103 8109"/>
+      </div>
+
+      <div class="cf-row">
+        <span class="cf-subj-label">Asunto</span>
+        <div class="cf-subjects">
+          <button class="cf-subject active">Pedido</button>
+          <button class="cf-subject">Producto</button>
+          <button class="cf-subject">Envío</button>
+          <button class="cf-subject">Pago</button>
+          <button class="cf-subject">Devolución</button>
+          <button class="cf-subject">Otro</button>
+        </div>
+      </div>
+
+      <div class="cf-row">
+        <label class="cf-label">Mensaje *</label>
+        <textarea class="cf-textarea" id="cfMsg" placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+      </div>
+
+      <button class="btn-send-msg" id="btnSendMsg">Enviar por WhatsApp →</button>
+
+      <div class="cf-success" id="cfSuccess">
+        <strong>✓ Mensaje enviado</strong>
+        <span>WhatsApp se abrirá para enviarnos tu mensaje. ¡Gracias por contactarnos!</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo-wrap">
+      <div class="footer-logo-main">SENSIS GOOD FF</div>
+      <div class="footer-logo-sub">// tienda oficial · México</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="catalogo.html">Catálogo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="footer-right">
+      <span>WhatsApp</span><br>+52 652 103 8109<br>
+      © 2025 — Todos los derechos reservados
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="contacto.js"></script>
+</body>
+</html>
